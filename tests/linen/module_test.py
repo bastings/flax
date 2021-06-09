@@ -1359,7 +1359,6 @@ class ModuleTest(absltest.TestCase):
         return x + 1
 
     def intercept_method(mdl, fun, args, kwargs):
-      # Add 1 to the output of Bar methods.
       if isinstance(mdl, Foo):
         output = fun(mdl, *args, **kwargs) 
         return jnp.dot(output, output)
