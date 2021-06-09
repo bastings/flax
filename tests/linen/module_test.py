@@ -1367,8 +1367,8 @@ class ModuleTest(absltest.TestCase):
     def model_apply(inputs):
       return Foo().apply({}, inputs, intercept_method=intercept_method)
 
-    vmaped_apply = jax.vmap(model_apply, in_axes=1)
-    output = vmaped_apply(np.array([[0, 1, 2], [0, 1, 2]]))
+    vmapped_apply = jax.vmap(model_apply, in_axes=1)
+    output = vmapped_apply(np.array([[0, 1, 2], [0, 1, 2]]))
     np.testing.assert_array_equal(output, [2, 8, 18])
 
   def test_intercept_method_that_captures_intermediate_output(self):
